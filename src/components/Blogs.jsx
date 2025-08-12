@@ -11,7 +11,7 @@ function BlogsViewOnly() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/blogs");
+      const res = await fetch("mongodb+srv://kartikbrahambhatt08:kartik123@blog.zf0bned.mongodb.net/api/blogs");
       const data = await res.json();
       setBlogs(data);
     } catch (error) {
