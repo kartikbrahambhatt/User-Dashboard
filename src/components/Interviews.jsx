@@ -11,7 +11,7 @@ function InterviewsViewOnly() {
 
   const fetchInterviews = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/interviews");
+      const res = await fetch("https://database-bg72.onrender.com/api/interviews");
       const data = await res.json();
       setInterviews(data);
     } catch (error) {
@@ -60,7 +60,7 @@ function InterviewsViewOnly() {
                   className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200"
                 >
                   <img
-                    src={`http://localhost:4000/uploads/interviews/${item.Image}`}
+                    src={`https://database-bg72.onrender.com/uploads/interviews/${item.Image}`}
                     alt={item.Name}
                     className="w-full h-48 object-cover"
                   />
@@ -88,7 +88,7 @@ function InterviewsViewOnly() {
         <div className="w-full min-h-screen bg-white rounded shadow-lg p-0">
           <div className="w-full h-[500px] overflow-hidden">
             <img
-              src={`http://localhost:4000/uploads/interviews/${selectedInterview.Image}`}
+              src={`https://database-bg72.onrender.com/uploads/interviews/${selectedInterview.Image}`}
               alt={selectedInterview.Name}
               className="w-full h-full p-6 object-cover"
             />

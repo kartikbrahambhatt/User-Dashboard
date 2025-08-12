@@ -7,7 +7,7 @@ function BlogSlider() {
   const scrollSpeed = 0.5;
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/blogs')
+    fetch('https://database-bg72.onrender.com/api/blogs')
       .then((res) => res.json())
       .then((data) => setBlogs([...data, ...data])) // 👈 Duplicate blogs for seamless loop
       .catch((err) => {
@@ -58,7 +58,7 @@ function BlogSlider() {
             className="min-w-[300px] max-w-xs bg-white rounded-xl shadow-md p-4 flex-shrink-0"
           >
             <img
-              src={`http://localhost:4000/uploads/blogs/${blog.image}`}
+              src={`https://database-bg72.onrender.com/uploads/blogs/${blog.image}`}
               alt={blog.blogTitle}
               className="w-full h-40 object-cover rounded-md mb-3"
               onError={(e) => {

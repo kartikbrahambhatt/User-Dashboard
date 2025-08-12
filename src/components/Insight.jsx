@@ -11,7 +11,7 @@ function InsightsViewOnly() {
 
   const fetchInsights = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/insights");
+      const res = await fetch("https://database-bg72.onrender.com/api/insights");
       const data = await res.json();
       setInsights(data);
     } catch (error) {
@@ -55,7 +55,7 @@ function InsightsViewOnly() {
               filteredInsights.map((item) => (
                 <div key={item._id} className="bg-inherit overflow-hidden">
                   <img
-                    src={`http://localhost:4000/uploads/insights/${item.Image}`}
+                    src={`https://database-bg72.onrender.com/uploads/insights/${item.Image}`}
                     alt={item.Title}
                     className="w-full h-48 object-cover rounded-t-2xl"
                   />

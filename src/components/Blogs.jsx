@@ -11,7 +11,7 @@ function BlogsViewOnly() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("mongodb+srv://kartikbrahambhatt08:kartik123@blog.zf0bned.mongodb.net/api/blogs");
+      const res = await fetch("https://database-bg72.onrender.com/api/blogs");
       const data = await res.json();
       setBlogs(data);
     } catch (error) {
@@ -58,7 +58,7 @@ function BlogsViewOnly() {
                 >
                   {blog.image && (
                     <img
-                      src={`http://localhost:4000/uploads/blogs/${blog.image}`}
+                      src={`https://database-bg72.onrender.com/uploads/blogs/${blog.image}`}
                       alt={blog.blogTitle}
                       className="w-full h-48 object-cover"
                     />

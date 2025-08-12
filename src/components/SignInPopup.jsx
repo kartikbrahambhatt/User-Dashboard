@@ -11,7 +11,7 @@ function SignInPopup() {
     try {
       const token = credentialResponse.credential;
       const decoded = jwtDecode(token);
-      const response = await axios.post("http://localhost:4000/api/google-login", { token });
+      const response = await axios.post("https://database-bg72.onrender.com/api/google-login", { token });
 
       login(response.data.user); 
       togglePopup();
