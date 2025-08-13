@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-function BlogsViewOnly() {
+function Blogs() {
   const [blogs, setBlogs] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Get the base URL from the environment variable
+// In your React component
+const API_BASE_URL = import.meta.env.VITE_DATABASE_URL;
   useEffect(() => {
     fetchBlogs();
   }, []);
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("https://database-bg72.onrender.com/api/blogs");
+      // Use the environment variable in the fetch call
+      const res = await fetch(`${API_BASE_URL}/api/blogs`);
       const data = await res.json();
       setBlogs(data);
     } catch (error) {
@@ -34,9 +38,10 @@ function BlogsViewOnly() {
   };
 
   const filteredBlogs = blogs.filter((blog) =>
-  blog.blogName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  blog.blogTitle.toLowerCase().includes(searchTerm.toLowerCase())
-);
+    blog.blogName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    blog.blogTitle.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="p-6">
       {!selectedBlog ? (
@@ -58,7 +63,7 @@ function BlogsViewOnly() {
                 >
                   {blog.image && (
                     <img
-                      src={`https://database-bg72.onrender.com/uploads/blogs/${blog.image}`}
+                      src={`${API_BASE_URL}/uploads/blogs/${blog.image}`}
                       alt={blog.blogTitle}
                       className="w-full h-48 object-cover"
                     />
@@ -88,7 +93,7 @@ function BlogsViewOnly() {
           {selectedBlog.image && (
             <div className="w-full mb-6">
               <img
-                src={`http://localhost:4000/uploads/blogs/${selectedBlog.image}`}
+                src={`${API_BASE_URL}/uploads/blogs/${selectedBlog.image}`}
                 alt={selectedBlog.blogTitle}
                 className="w-full max-h-[500px] object-cover rounded-lg"
               />
@@ -125,4 +130,4 @@ function BlogsViewOnly() {
   );
 }
 
-export default BlogsViewOnly;
+export default Blogs;
